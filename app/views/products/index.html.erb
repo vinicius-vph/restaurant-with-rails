@@ -10,11 +10,11 @@
     </thead>
 
     <tbody>
-        <% @products.each do |p| %>
+        <% @products.each do |product| %>
             <tr>
-                <th><%= p.name %></th>
-                <th><%= p.value %></th>
-                <th><%= p.restaurant.name %></th>
+                <th><%= product.name %></th>
+                <th><%= product.value %></th>
+                <th><%= product.restaurant.name %></th>
             </tr>
         <% end %>
     </tbody>
