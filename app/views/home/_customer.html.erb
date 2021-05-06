@@ -1,0 +1,21 @@
+<h3>Restaurantes disponiveis</h3>
+    <table>
+        <% Restaurant.all.each do |r| %>
+            <thead>
+                <tr>
+                    <th><p><%= r.name %></p></th>
+                </tr>
+            </thead>
+
+            <tbody>                   
+                <% r.products.each do |product| %>
+                    <tr>
+                        <td>
+                            <%= product.name %>
+                        </td>
+                    </tr>                           
+                    
+                <% end %>
+            </tbody>
+        <% end %>
+    </table>

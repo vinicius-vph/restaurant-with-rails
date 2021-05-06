@@ -1,0 +1,19 @@
+<p>Esses são seus produtos cadrastados</p>
+
+<table>
+    <thead>
+        <tr>
+            <th>Nome</th>
+            <th>Valor</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <% current_user.restaurant.products.each do |product| %>
+            <tr>
+                <th><%= product.name %></th>
+                <th><%= product.value %></th>
+            </tr>
+        <% end %>
+    </tbody>
+</table>
