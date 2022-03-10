@@ -5,7 +5,7 @@
             "server": "localhost",
             "port": 5433,
             "driver": "PostgreSQL",
-            "name": "ieat-postgres",
+            "name": "restaurant-on-rails-postgres",
             "database": "postgres",
             "username": "postgres",
             "password": "postgres"

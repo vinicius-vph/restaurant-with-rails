@@ -1,5 +1,5 @@
 {
-  "name": "ieat",
+  "name": "restaurant-on-rails",
   "private": true,
   "dependencies": {
     "@rails/actioncable": "^6.0.0",

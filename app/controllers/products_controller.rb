@@ -6,10 +6,10 @@ class ProductsController < ApplicationController
   def new
     @product = Product.new
   end
-  
+
   def create
-    @product = Product.new(product_params) 
-    
+    @product = Product.new(product_params)
+
     respond_to do |format|
       if @product.save
         format.html { redirect_to products_path, notice: 'Produto criado' }

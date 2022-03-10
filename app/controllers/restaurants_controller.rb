@@ -7,8 +7,7 @@ class RestaurantsController < ApplicationController
   end
 
   # GET /restaurants/1 or /restaurants/1.json
-  def show
-  end
+  def show; end
 
   # GET /restaurants/new
   def new
@@ -16,8 +15,7 @@ class RestaurantsController < ApplicationController
   end
 
   # GET /restaurants/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /restaurants or /restaurants.json
   def create
@@ -57,13 +55,14 @@ class RestaurantsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_restaurant
-      @restaurant = Restaurant.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def restaurant_params
-      params.require(:restaurant).permit(:name, :address, :user_id)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_restaurant
+    @restaurant = Restaurant.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def restaurant_params
+    params.require(:restaurant).permit(:name, :address, :user_id)
+  end
 end
