@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
-  
-  resources :products, only: [:index, :new, :create]
+  resources :products, only: %i[index new create]
   resources :restaurants
   devise_for :users
   root 'home#index'

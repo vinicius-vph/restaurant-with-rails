@@ -1,11 +1,12 @@
 require 'rails_helper'
 
 RSpec.describe Restaurant, type: :model do
-  it { should have_many(:products)}
+  it { should have_many(:products) }
 
   context 'testing total of products' do
     let(:restaurant) { FactoryBot.create(:restaurant) }
     let(:total) { rand(5) }
+
     before do
       (1..total).each do |item|
         FactoryBot.create(:product, restaurant: restaurant)
