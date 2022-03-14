@@ -1,20 +1,15 @@
 <h3>Restaurantes disponiveis</h3>
-
-<table>
+<div class="grid-container">
   <% Restaurant.all.each do |r| %>
-    <thead>
-      <tr>
-        <th><p><%= r.name %></p></th>
-      </tr>
-    </thead>
-    <tbody>
-      <% r.products.each do |product| %>
-        <tr>
-          <td>
-            <%= product.name %>
-          </td>
-        </tr>
-      <% end %>
-    </tbody>
+    <div class="card-box">
+      <div class="card-box__imgBox">
+        <%= image_tag "food#{r.id}.png", alt:"restaurant icon" %>
+        <h3 class="card-box__title"><%= r.name %></h3>
+      </div>
+      <div class="card-box__content">
+        <p><%= r.address %></p>
+        <%= link_to 'Ver mais', r %>
+      </div>
+    </div>
   <% end %>
-</table>
+</div>

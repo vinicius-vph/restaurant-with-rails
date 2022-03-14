@@ -1,14 +1,28 @@
-<p id="notice"><%= notice %></p>
+<div class="container">
+  <%= link_to 'Back', root_path, class:'back-button' %>
+  <% if user_signed_in? && current_user.admin? %>
+    <%= link_to 'Edit', edit_restaurant_path(@restaurant) %>
+  <% end %>
+  <div class="rest-title">
+    <h2><%= @restaurant.name %></h2>
+    <p>👍 🍝 <%= @restaurant.address %> ❤️</p>
+  </div>
 
-<p>
-  <strong>Name:</strong>
-  <%= @restaurant.name %>
-</p>
-
-<p>
-  <strong>Address:</strong>
-  <%= @restaurant.address %>
-</p>
-
-<%= link_to 'Edit', edit_restaurant_path(@restaurant) %> |
-<%= link_to 'Back', restaurants_path %>
+  <div class="grid-container">
+    <% @restaurant.products.each do |product| %>
+      <div class="card-box">
+        <div class="card-box__imgBox">
+          <%= image_tag "food#{@restaurant.id}.png", alt:"restaurant icon" %>
+        </div>
+        <div class="card-box__content">
+          <%= form_tag('/orders') do %>
+            <%= hidden_field_tag :product_id, product.id %>
+            <p><%= product.name %></p>
+            <p><strong><%= "€ #{product.value}" %></strong></p>
+            <%= submit_tag 'Pedir', class:"order-submit"%>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

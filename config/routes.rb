@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
-  resources :products, only: %i[index new create]
-  resources :restaurants
-  devise_for :users
   root 'home#index'
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  devise_for :users
+  resources :restaurants
+  resources :products, only: %i[index new create edit]
+  resources :orders, only: %i[create]
 end

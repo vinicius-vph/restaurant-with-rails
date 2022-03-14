@@ -1,17 +1,14 @@
-<% if user_signed_in? %>
-  <div>
-    <%= link_to('Logout', destroy_user_session_path, method: :delete) %>
-  </div>
-  <br>
-  <% if current_user.restaurant? %>
-    <h1><%= "Bem vindo #{current_user.restaurant.name} !" %></h1>
-    <%= render 'restaurant' %>
-  <% elsif current_user.customer? %>
-    <h1><%= "Bem vindo #{current_user.email} !" %></h1>
+<%= render 'header' %>
+<section>
+  <% if user_signed_in? %>
+    <% if current_user.restaurant? %>
+      <%= render 'restaurant' %>
+    <% elsif current_user.customer? %>
       <%= render 'customer' %>
+    <% else %>
+      <%= render 'admin' %>
+    <% end %>
+  <% else %>
+    <%= render 'visitor' %>
   <% end %>
-<% else %>
-  <div>
-    <%= link_to('Login', new_user_session_path) %>
-  </div>
-<% end %>
+</section>

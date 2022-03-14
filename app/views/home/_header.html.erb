@@ -1,0 +1,15 @@
+<header class="app-header">
+  <%= image_tag 'favicon-32x32.png', alt:"Ror Icon" %>
+  <% if user_signed_in? %>
+    <% if current_user.restaurant? %>
+      <h3><%= "Bem vindo a sua área logada #{current_user.restaurant.name} !" %></h3>
+    <% elsif current_user.customer? %>
+      <h3><%= "Bem vindo de volta #{current_user.email} !" %></h3>
+    <% else %>
+      <h3><%= "Bem vindo Admin #{current_user.email} !" %></h3>
+    <% end %>
+    <%= button_to 'Logout', destroy_user_session_path, method: :delete, class:"auth-button"  %>
+  <% else %>
+    <%= button_to'Login', new_user_session_path, method: :get, class:"auth-button" %>
+  <% end %>
+</header>

@@ -1,6 +1,8 @@
-<p>Esses são seus produtos cadrastados</p>
+<div class="container">
+<h3>Esses são seus produtos cadrastados</h3>
 
-<table>
+<th><%= link_to 'Novo Produto', new_product_path, class:"function-button add"%></th>
+<table class="products">
   <thead>
     <tr>
       <th>Nome</th>
@@ -8,11 +10,16 @@
     </tr>
   </thead>
   <tbody>
+
     <% current_user.restaurant.products.each do |product| %>
       <tr>
         <th><%= product.name %></th>
         <th><%= product.value %></th>
+        <th><%= link_to 'Editar', edit_product_path(product.id), class:"function-button edit" %></th>
+        <th><%= link_to 'Deletar', current_user.restaurant, method: :delete, data: { confirm: 'Are you sure?' }, class:"function-button delete" %></th>
       </tr>
+
     <% end %>
   </tbody>
 </table>
+</div>

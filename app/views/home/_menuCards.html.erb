@@ -1,0 +1,17 @@
+<div class="menu-cards">
+  <h2>Comida perto de ti</h2>
+  <div class="grid-container">
+    <% Restaurant.all.each do |r| %>
+      <div class="card-box">
+        <div class="card-box__imgBox">
+          <%= image_tag "food#{r.id}.png", alt:"restaurant icon" %>
+          <h3 class="card-box__title"><%= r.name %></h3>
+        </div>
+        <div class="card-box__content">
+          <p><%= r.address %></p>
+          <%= link_to 'Ver mais', r %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
