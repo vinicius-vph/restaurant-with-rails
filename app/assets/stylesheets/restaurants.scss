@@ -1,3 +1,204 @@
-// Place all the styles related to the restaurants controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: https://sass-lang.com/
+@mixin flex-center { display: flex; justify-content: center; align-items: center; }
+
+.card-box {
+  &, & * { box-sizing: border-box; transition: 700ms; }
+  width: 100%;
+  height: 400px;
+  max-width: 300px;
+  border-radius: 5px;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(2px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-right-color: rgba(255, 255, 255, 0.1);
+  border-bottom-color: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 20px 30px rgba(0, 0, 0, 0.1);
+  padding: 15px;
+  position: relative;
+  @include flex-center;
+  flex-direction: column;
+  &__imgBox {
+    img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+  }
+  &__title {
+    text-align: center;
+    margin-top: 15px;
+    color: #000;
+    font-size: 20px;
+    font-weight: 400;
+    font-family: "Lato";
+  }
+  & a {
+    width: 40%;
+    margin: 0 auto;
+  }
+  & a:hover {
+    background: rgba(255, 255, 255, 0.5);
+    color: rgba(0, 0, 0, 0.39);
+  }
+  &:hover &__imgBox {
+    transform: translateY(-10px);
+  }
+  &:hover &__imgBox img {
+    transform: translate(-20px, -40px) rotate(-15deg) scale(1.4);
+  }
+  &:hover &__title {
+    margin-top: 40px;
+  }
+}
+
+div.grid-container {
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  min-height: 80vh;
+  justify-content: space-evenly;
+}
+
+// round div
+div.rouded-box {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin: 40px auto;
+  width: 50%;
+
+  & .rounded {
+    display: flex;
+    flex-direction: column;
+    width: 120px;
+    height: 120px;
+    justify-content: space-evenly;
+    border: rgba(0, 0, 0, 0.158) solid 1px;
+    border-radius: 100%;
+    background-color: #fff;
+    animation-delay: 0.5s;
+    & img {
+      width: 40%;
+    }
+  }
+}
+
+.menu-icons {
+  width: 100%;
+  background-color: #ffc244;
+  border-bottom-left-radius: 100%;
+  border-bottom-right-radius: 100%;
+
+  & h1 {
+    text-align: center;
+  }
+}
+
+.menu-cards {
+  & h2 {
+    text-align: center;
+  }
+}
+
+.menu-icons,.menu-cards {
+  height: 400px;
+  padding-top: 20px;
+}
+
+.container {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  border: #000 3px solid;
+  padding: 10px;
+  & .rest-title {
+    align-self: center;
+    width: 50%;
+    padding: 10px;
+    margin: 20px 0 40px;
+    border-radius: 5px;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(2px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-right-color: rgba(255, 255, 255, 0.1);
+    border-bottom-color: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 20px 30px rgba(0, 0, 0, 0.1);
+  }
+}
+
+.order-submit {
+  width: 100%;
+  height: 40px;
+  margin: 0 auto;
+  padding: 20px;
+  font-weight: 700;
+  font-size: 12px;
+
+  text-decoration: none;
+  text-align: center;
+  text-overflow: ellipsis;
+  line-height: 1.1%;
+  color: #fff;
+  background-color: #00a082;
+  border-radius: 20px;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 20px 30px rgba(0, 0, 0, 0.1);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+table.products {
+  border: rgba(0, 0, 0, 0.158) solid 1px;
+  padding: 10px;
+  margin-top: 20px;
+  & thead, & tbody{
+    border: rgba(0, 0, 0, 0.158) solid 1px;
+  }
+  & tr th {
+    padding: 10px;
+  }
+}
+
+.function-button {
+  border: rgba(0, 0, 0, 0.158) solid 1px;
+  border-radius: 5px;
+
+  &.add {
+    width: 100px;
+    background-color: #44ff98;
+
+  }
+  &.edit {
+    background-color: #fcff44;
+
+  }
+  &.delete {
+    background-color: #ff4444;
+  }
+  &.edit, &.delete {
+    width: 50px;
+    margin: 0;
+  }
+}
+
+
+
+@media screen and (max-width: 950px) {
+  div.grid-container {
+    grid-template-columns: auto auto auto;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  div.grid-container {
+    grid-template-columns: auto auto;
+  }
+}
+@media screen and (max-width: 500px) {
+  div.grid-container {
+    grid-template-columns: auto;
+  }
+}
+
