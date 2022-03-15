@@ -1,20 +1,21 @@
-<h1>Products</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Nome</th>
-      <th>Valor</th>
-      <th>Restaurante</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @products.each do |product| %>
+<div class="container">
+  <h1>Products</h1>
+  <table class="table-content">
+    <thead>
       <tr>
-        <th><%= product.name %></th>
-        <th><%= product.value %></th>
-        <th><%= product.restaurant.name %></th>
+        <th>Nome</th>
+        <th>Valor</th>
+        <th>Restaurante</th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
+    <tbody>
+      <% @products.each do |product| %>
+        <tr>
+          <th><%= product.name %></th>
+          <th><%= product.value %></th>
+          <th><%= product.restaurant.name %></th>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
